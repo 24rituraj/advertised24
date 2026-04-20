@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIX | Refresh Your Reality</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Liquid SVG Filter -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="liquid">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="1" result="warp" />
+                <feDisplacementMap in="SourceGraphic" in2="warp" scale="30" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
+    <nav>
+        <div class="logo">DRIX</div>
+        <div class="menu-btn"><span></span><span></span></div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 id="liquid-logo">DRIX</h1>
+                <p class="tagline">REFRESH YOUR REALITY</p>
+                <div class="scroll-indicator">SCROLL TO DRINK</div>
+            </div>
+            <div class="bubbles-container" id="hero-bubbles"></div>
+        </section>
+
+        <!-- Flavor 1: Lime Blast -->
+        <section class="flavor lime" id="flavor-lime">
+            <div class="flavor-content">
+                <div class="text-area">
+                    <h2>LIME BLAST</h2>
+                    <p>Energetic, citrusy, and dangerously cold.</p>
+                    <button class="btn">TRY NOW</button>
+                </div>
+                <div class="visual-area">
+                    <div class="can can-lime">
+                        <div class="condensation"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flavor 2: Berry Chill -->
+        <section class="flavor berry" id="flavor-berry">
+            <div class="flavor-content">
+                <div class="visual-area">
+                    <div class="can can-berry">
+                        <div class="condensation"></div>
+                    </div>
+                </div>
+                <div class="text-area">
+                    <h2>BERRY CHILL</h2>
+                    <p>A smooth wave of forest berries with an icy finish.</p>
+                    <button class="btn">DISCOVER</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flavor 3: Orange Surge -->
+        <section class="flavor orange" id="flavor-orange">
+            <div class="flavor-content">
+                <div class="text-area">
+                    <h2>ORANGE SURGE</h2>
+                    <p>Vibrant sun-ripened oranges in every drop.</p>
+                    <button class="btn">SURGE ON</button>
+                </div>
+                <div class="visual-area">
+                    <div class="can can-orange">
+                        <div class="condensation"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <div class="cta-content">
+                <h3>FEEL THE COLD.</h3>
+                <div class="logo-large">DRIX</div>
+                <p>Join the movement.</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your Email">
+                    <button type="submit">STAY COLD</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DRIX REFRESHMENTS. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
