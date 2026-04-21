@@ -12,11 +12,11 @@ window.toggleTheme = () => {
     if (body.classList.contains('light-mode')) {
         btn.innerText = '☀️';
         menuSpans.forEach(span => span.style.background = '#0f172a');
-        gsap.to(".logo", { color: '#0f172a', duration: 0.4 });
+        gsap.to([".logo", ".nav-item"], { color: '#0f172a', duration: 0.4 });
     } else {
         btn.innerText = '🌙';
         menuSpans.forEach(span => span.style.background = 'white');
-        gsap.to(".logo", { color: 'white', duration: 0.4 });
+        gsap.to([".logo", ".nav-item"], { color: 'white', duration: 0.4 });
     }
 };
 
@@ -103,6 +103,8 @@ sections.forEach((section) => {
 
 function updateNavColor(color) {
     gsap.to(".logo", { color: color, duration: 0.5 });
+    gsap.to(".nav-item", { color: color, duration: 0.5 });
+    gsap.to(".region-section h4", { color: color, duration: 0.5 });
 }
 
 // 3. Bubble System

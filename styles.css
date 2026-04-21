@@ -102,6 +102,118 @@ nav {
     border-radius: 2px;
 }
 
+/* Nav Links */
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-item:hover {
+    opacity: 0.7;
+    color: var(--lime);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: -1rem;
+}
+
+.dropdown-content {
+    position: fixed;
+    top: 80px;
+    left: 5%;
+    right: 5%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass);
+    padding: 3rem;
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1001;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.region-section h4 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--lime);
+    border-bottom: 1px solid var(--glass);
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.country-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.8rem;
+}
+
+.country-list span {
+    font-size: 0.85rem;
+    color: #999;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.country-list span:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Light Mode Dropdown */
+body.light-mode .dropdown-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0,0,0,0.1);
+}
+
+body.light-mode .country-list span:hover {
+    color: var(--bg-dark);
+}
+
+/* Mobile Toggle - Hidden on Desktop */
+.mobile-toggle {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .nav-links {
+        display: none; /* Hide on tablet/mobile for now, can implement mobile menu later */
+    }
+    .mobile-toggle {
+        display: flex;
+    }
+}
+
 /* Sections */
 section {
     min-height: 100vh;
