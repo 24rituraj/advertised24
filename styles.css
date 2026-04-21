@@ -7,6 +7,42 @@
     --bg-dark: #050505;
     --text-light: #f0f0f0;
     --glass: rgba(255, 255, 255, 0.1);
+    --transition: all 0.4s ease;
+}
+
+/* Light Mode Overrides */
+body.light-mode {
+    --bg-dark: #f8fafc;
+    --text-light: #0f172a;
+    --glass: rgba(15, 23, 42, 0.05);
+}
+
+body.light-mode {
+    background-image: radial-gradient(circle at 50% 50%, #fff 0%, #f1f5f9 100%);
+}
+
+body.light-mode #liquid-logo {
+    background: linear-gradient(to bottom, #0f172a, #475569);
+    -webkit-background-clip: text;
+}
+
+body.light-mode nav {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+body.light-mode .bubble {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .cta {
+    background: #0f172a;
+    color: white;
+}
+
+body.light-mode .cta .logo-large {
+    color: white;
 }
 
 * {
@@ -20,6 +56,7 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-light);
     overflow-x: hidden;
+    transition: var(--transition);
     background-image: 
         radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
 }
@@ -41,6 +78,8 @@ nav {
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: -2px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .menu-btn {
@@ -50,6 +89,10 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
 }
 
 .menu-btn span {

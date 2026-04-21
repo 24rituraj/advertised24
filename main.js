@@ -1,6 +1,25 @@
 // Initialize GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+// Theme Toggle Logic
+window.toggleTheme = () => {
+    const body = document.body;
+    const btn = document.getElementById('theme-toggle');
+    const menuSpans = document.querySelectorAll('.menu-btn span');
+    
+    body.classList.toggle('light-mode');
+    
+    if (body.classList.contains('light-mode')) {
+        btn.innerText = '☀️';
+        menuSpans.forEach(span => span.style.background = '#0f172a');
+        gsap.to(".logo", { color: '#0f172a', duration: 0.4 });
+    } else {
+        btn.innerText = '🌙';
+        menuSpans.forEach(span => span.style.background = 'white');
+        gsap.to(".logo", { color: 'white', duration: 0.4 });
+    }
+};
+
 // 1. Liquid Logo Animation
 const liquidFilter = document.querySelector('#liquid feTurbulence');
 gsap.to(liquidFilter, {
