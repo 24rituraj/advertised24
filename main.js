@@ -22,23 +22,27 @@ window.toggleTheme = () => {
 
 // 1. Liquid Logo Animation
 const liquidFilter = document.querySelector('#liquid feTurbulence');
-gsap.to(liquidFilter, {
-    duration: 8,
-    attr: { baseFrequency: "0.015 0.04" },
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-});
+if (liquidFilter) {
+    gsap.to(liquidFilter, {
+        duration: 8,
+        attr: { baseFrequency: "0.015 0.04" },
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+    });
+}
 
 // Animate displacement scale for "splashing" effect
 const liquidMap = document.querySelector('#liquid feDisplacementMap');
-gsap.to(liquidMap, {
-    duration: 4,
-    attr: { scale: 50 },
-    repeat: -1,
-    yoyo: true,
-    ease: "power1.inOut"
-});
+if (liquidMap) {
+    gsap.to(liquidMap, {
+        duration: 4,
+        attr: { scale: 50 },
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+    });
+}
 
 // 2. Scroll Animations
 const sections = ['lime', 'berry', 'orange'];
@@ -110,6 +114,7 @@ function updateNavColor(color) {
 // 3. Bubble System
 function createBubbles() {
     const container = document.getElementById('hero-bubbles');
+    if (!container) return;
     for (let i = 0; i < 20; i++) {
         const bubble = document.createElement('div');
         bubble.className = 'bubble';
@@ -153,6 +158,7 @@ document.addEventListener('mousemove', (e) => {
 window.addEventListener('scroll', () => {
     const scroll = window.scrollY;
     const logo = document.querySelector('.logo');
+    if (!logo) return;
     if (scroll > 100) {
         logo.style.fontSize = '1.5rem';
         logo.style.letterSpacing = '5px';
@@ -160,6 +166,69 @@ window.addEventListener('scroll', () => {
         logo.style.fontSize = '2rem';
         logo.style.letterSpacing = '-2px';
     }
+});
+
+// 6. Soft Drink Section Animations
+gsap.from("#soft-drink .text-area", {
+    scrollTrigger: {
+        trigger: "#soft-drink",
+        start: "top 80%",
+    },
+    x: 100,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+});
+
+// Animate Hazards appearing
+gsap.to(".hazard", {
+    scrollTrigger: {
+        trigger: "#soft-drink",
+        start: "top 60%",
+    },
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "back.out(1.7)"
+});
+
+// Animate Background Circles
+gsap.to(".bg-circle", {
+    scrollTrigger: {
+        trigger: "#soft-drink",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+    },
+    scale: 1.2,
+    opacity: 0.15,
+    stagger: 0.1
+});
+
+// Continuous SVG Bubbles Animation
+gsap.to(".svg-bubbles circle", {
+    y: -20,
+    opacity: 0,
+    duration: "random(1, 2)",
+    repeat: -1,
+    delay: "random(0, 2)",
+    ease: "power1.inOut",
+    stagger: {
+        each: 0.2,
+        repeat: -1
+    }
+});
+
+// Floating Can Effect for SVG
+gsap.to("#health-svg", {
+    y: -10,
+    rotation: 1,
+    duration: 3,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
 });
 
 console.log("DRIX Experience Loaded");
